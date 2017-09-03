@@ -9,7 +9,7 @@
     "http-server": "^0.10.0"
   },
   "scripts": {
-    "start": "http-server -o",
+    "start": "http-server -a localhost -p 8000 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
