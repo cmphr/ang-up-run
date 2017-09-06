@@ -10,16 +10,19 @@
 
 <body ng-controller="MainCtrl as ctrl">
 
-  <form ng-submit="ctrl.submit()">
-    <input type="text" ng-model="ctrl.user.username" />
-    <input type="password" ng-model="ctrl.user.password" />
-    <button ng-click="ctrl.submit()">Submit</button>
-  
+  <form ng-submit="ctrl.submit()" name="myForm">
+    <input type="text" name="uname" ng-model="ctrl.user.username" required ng-minlength="4" />
+    <span ng-show="myForm.uname.$error.required">This is a required field</span>
+    <span ng-show="myForm.uname.$error.minlength">Minimum length required is 4</span>
+    <span ng-show="myForm.uname.$invalid">This field is invalid</span>
+    <input type="password" name="pwd" ng-model="ctrl.user.password" required />
+    <span ng-show="myForm.pwd.$error.required">This is a required field</span>
+    <button ng-click="ctrl.submit()" ng-disabled="myForm.$invalid">Submit</button>
   </form>
 
   <script src="angular.js"></script>
   <script>
-    angular.module('notesApp', [])
+    angular.module('notesApp', ['ngMessages'])
       .controller('MainCtrl', [function () {
         var self = this;
         self.submit = function() {
