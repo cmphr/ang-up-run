@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Notes App</title>
+</head>
+
+<body ng-controller="MainCtrl as ctrl">
+
+  <form ng-submit="ctrl.submit()">
+    <input type="text" ng-model="ctrl.user.username" />
+    <input type="password" ng-model="ctrl.user.password" />
+    <button ng-click="ctrl.submit()">Submit</button>
+  
+  </form>
+
+  <script src="angular.js"></script>
+  <script>
+    angular.module('notesApp', [])
+      .controller('MainCtrl', [function () {
+        var self = this;
+        self.submit = function() {
+          console.log('User clicked submit with ', self.user);
+        };
+        // self.notes = [
+        //   {id: 1, label: 'First Note', done: false, assignee: 'Bubba'},
+        //   {id: 2, label: 'Second Note', done: false},
+        //   {id: 3, label: 'Done Note', done: true},
+        //   {id: 4, label: 'Last Note', done: false, assignee: 'Snowy'}
+        // ];
+      }]);
+  </script>
+</body>
+
+</html>
