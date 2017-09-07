@@ -13,6 +13,10 @@
     <div>
       <input type="text" class="username" name="uname" ng-model="ctrl.user.username" required="" placeholder="Username" ng-minlength="4">
       <input type="password" class="password" name="pwd" ng-model="ctrl.user.password" required="" placeholder="Password">
+      <input type="checkbox" ng-model="ctrl.user.agree" ng-checked="ctrl.user.username.length > 0">
+      <span ng-repeat="gender in ctrl.genderOptions">
+        <input type="radio" name="gender" ng-model="ctrl.user.gender" ng-value="gender.value"> {{gender.label}}
+      </span>
     </div>
 
     <ng-form name="profile">
@@ -30,9 +34,26 @@
   <script src="angular.js"></script>
   <script>
     angular.module('notesApp', [])
-      .controller('MainCtrl', [function() {
+      .controller('MainCtrl', [function () {
         var self = this;
-        self.submit = function() {
+        self.genderOptions = [{
+            label: 'Male',
+            value: 'male'
+          },
+          {
+            label: 'Female',
+            value: 'female'
+          },
+          {
+            label: 'Rather Not Say',
+            value: 'na'
+          }
+        ]
+        self.user = {
+          username: 'Jimbo',
+          gender: 'male'
+        };
+        self.submit = function () {
           console.log(self.user);
         }
       }]);
