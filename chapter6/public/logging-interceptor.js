@@ -52,6 +52,6 @@ angular.module('notesApp', [])
     };
   }])
   .config(['$httpProvider', function($httpProvider) {
-    console.log('Current number of interceptors: ', $httpProvider.interceptors.length);
+    console.log('The interceptors: ', $httpProvider.interceptors);
     $httpProvider.interceptors.push('MyLoggingInterceptor');
   }]);
