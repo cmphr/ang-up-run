@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body ng-app="filtersApp">
+  <div ng-controller="FilterCtrl as ctrl">
+    <div>
+      Amount as number: {{ctrl.amount | number}}
+    </div>
+    <div>
+      Total Cost as a currency: {{ctrl.totalCost | currency}}
+    </div>
+    <div>
+      Total Cost in INR: {{ctrl.totalCost | currency:'INR '}}
+    </div>
+    <div>
+      Shouting the name: {{ctrl.name | uppercase}}
+    </div>
+    <div>
+      Whispering the name: {{ctrl.name | lowercase}}
+    </div>
+    <div>
+      Start Time: {{ctrl.startTime | date: 'medium'}}
+    </div>
+  </div>
+  <script src="angular.js"></script>
+  <script type="text/javascript">
+    angular.module('filtersApp', [])
+      .controller('FilterCtrl', [function() {
+        this.amount = 1024;
+        this.totalCost = 4906;
+        this.name = 'Fred Flintstone';
+        this.startTime = new Date().getTime();
+      }]);
+  </script>
+</body>
+</html>
