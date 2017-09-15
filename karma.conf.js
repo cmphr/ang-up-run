@@ -6,7 +6,8 @@ module.exports = function(config) {
     files: [
       'angular.min.js',
       'angular-mocks.js',
-      '*.js'
+      'simpleCtrl*.js',
+      'testService*.js'
     ],
     exclude: [],
     port: 8080,
