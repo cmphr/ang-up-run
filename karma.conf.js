@@ -8,7 +8,8 @@ module.exports = function(config) {
       'angular-mocks.js',
       'simpleCtrl*.js',
       'testService*.js',
-      'testServer*.js'
+      'testServer*.js',
+      'timeAgo*.js'
     ],
     exclude: [],
     port: 8080,
