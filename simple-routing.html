@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Routing</title>
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+</head>
+<body ng-app="routingApp">
+  <h2>AngularJS Routing Applicaiton</h2>
+
+  <ul>
+    <li><a href="#/">Default Route</a></li>
+    <li><a href="#/second">Second Route</a></li>
+    <li><a href="#/adfasdfasd">Non-existent Route</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <script>
+    angular.module('routingApp', ['ngRoute'])
+      .config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/', {
+          template: '<h5>This is the default route</h5>'
+        })
+        .when('/second', {
+          template: '<h5>This is the second route</h5>'
+        })
+        .otherwise({ redirectTo: '/' });
+      }]);
+  </script>
+</body>
+</html>
