@@ -2,12 +2,7 @@
   "name": "ang-up-run",
   "version": "1.0.0",
   "main": "server.js",
-  "dependencies": {
-    "express": "~4.0.0",
-    "morgan": "~1.0.0",
-    "body-parser": "~1.0.0",
-    "method-override": "~1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "http-server": "^0.10.0",
     "jasmine-core": "^2.4.1",
