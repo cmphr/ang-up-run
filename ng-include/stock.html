@@ -1,13 +1,8 @@
 <div class="stock-dash">
   Name:
-  <span class="stock-name" ng-bind="stock.name"></span>
+  <span class="stock-name" ng-bind="stockData.name"></span>
   Price:
-  <span class="stock-price" ng-bind="stock.price | currency"></span>
+  <span class="stock-price" ng-bind="stockData.price | currency"></span>
   Percentage Change:
-  
-  <!-- getChange() works because this template is within the scope of the stock-widget directive:
-  index.html > ng-repeat > stock-widget directive > link key with getChange function > template is this file -->
-
-  <!-- another warning: still dependent on the "stock" variable -->
-  <span class="stock-change" ng-bind="getChange(stock) + '%'"></span>
+  <span class="stock-change" ng-bind="getChange(stockData) + '%'"></span>
 </div>
