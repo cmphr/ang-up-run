@@ -7,10 +7,4 @@ angular.module('stockMarketApp', [])
       {name: 'Third Stock', price: 110, previous: 110},
       {name: 'Fourth Stock', price: 400, previous: 420}
     ];
-
-    self.stockTemplate = 'stock.html';
-
-    self.getChange = function(stock) {
-      return Math.ceil(((stock.price - stock.previous) / stock.previous) * 100);
-    };
   }]);

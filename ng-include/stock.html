@@ -4,5 +4,7 @@
   Price:
   <span class="stock-price" ng-bind="stock.price | currency"></span>
   Percentage Change:
-  <span class="stock-change" ng-bind="mainCtrl.getChange(stock) + '%'"></span>
+  <!-- getChange() works because this template is within the scope of the stock-widget directive:
+  index.html > stock-widget directive > link key with getChange function > template is this file -->
+  <span class="stock-change" ng-bind="getChange(stock) + '%'"></span>
 </div>
