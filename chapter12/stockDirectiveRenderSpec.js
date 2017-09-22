@@ -12,7 +12,7 @@ describe('Stock Market Directive Rendering', function() {
   }));
 
   it('should render HTML based on scope correctly', function() {
-    // step 2
+    // step 2, simulate data returned from a controller
     var scope = rootScope.$new();
     scope.myStock = {
       name: 'Best Stock',
@@ -21,17 +21,17 @@ describe('Stock Market Directive Rendering', function() {
     };
     scope.title = 'the best';
 
-    // step 3
+    // step 3, templateURL from directive
     mockBackend.expectGET('stock.html').respond(
       '<div ng-bind="stockTitle"></div>' +
       '<div ng-bind="stockData.price"></div>');
 
-    // step 4
+    // step 4, create an instance of the directive, compile returns a function that is then called with scope
     var element = compile('<div stock-widget' +
       ' stock-data="myStock"' +
       ' stock-title="This is {{title}}"></div>')(scope);
 
-    // step 5
+    // step 5, update all bindings, ensure HTML is loaded and rendered
     scope.$digest();
     mockBackend.flush();
 
