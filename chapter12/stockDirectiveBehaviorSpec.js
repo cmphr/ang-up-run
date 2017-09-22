@@ -41,13 +41,13 @@ describe('Stock Market Directive Behavior', function() {
     scope.$digest();
     mockBackend.flush();
 
-    // step 6
+    // step 6, get scope of the element, not the parent scope, verify the scope data
     var compiledElementScope = element.isolateScope();
     
     expect(compiledElementScope.stockData).toEqual(scope.myStock);
     expect(compiledElementScope.getChange(compiledElementScope.stockData)).toEqual(-50);
 
-    // step 7
+    // step 7, verify directive function
     expect(scopeClickCalled).toEqual('');
     compiledElementScope.onSelect();
     expect(scopeClickCalled).toEqual('100;200;Best Stock');
