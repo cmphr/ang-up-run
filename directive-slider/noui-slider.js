@@ -14,7 +14,7 @@ angular.module('sliderApp')
           }
         });
 
-        // when data in angular changes, notify third party directive
+        // when data within angular changes, notify third party directive
         ngModelCtrl.$render = function() {
           $element.val(ngModelCtrl.$viewValue);
         };
