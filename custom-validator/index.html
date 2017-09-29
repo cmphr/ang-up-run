@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Market App</title>
+  <style>
+    input.ng-invalid {
+      background: pink;
+    }
+  </style>
+</head>
+<body ng-app="stockMarketApp">
+  <div ng-controller="MainCtrl as mainCtrl">
+    <h3>Zip Code Input</h3>
+    <h5>Zips are allowed in one of the following formats</h5>
+    <ul>
+      <li>12345</li>
+      <li>12345 1234</li>
+      <li>12345-1234</li>
+    </ul>
+    <form novalidate="" name="zipForm">
+      <input type="text" name="zipField" ng-model="mainCtrl.zip" valid-zip>
+      <div ng-show="zipForm.zipField.$error.zip">Zip code is invalid</div>
+    </form>
+  </div>
+  <script src="angular.js"></script>
+  <script src="app.js"></script>
+  <script src="directive.js"></script>
+</body>
+</html>
