@@ -5,6 +5,7 @@ angular.module('stockMarketApp')
       restrict: 'A',
       require: 'ngModel',
       link: function($scope, $element, $attrs, ngModelCtrl) {
+        // also, $asyncValidators is available, the function would return a promise, successfully resolved is valid
         ngModelCtrl.$validators.zip = function(value) {
           return zipCodeRegex.test(value);
         };
