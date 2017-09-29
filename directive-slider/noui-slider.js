@@ -19,9 +19,8 @@ angular.module('sliderApp')
           $element.val(ngModelCtrl.$viewValue);
         };
 
-        // when data changes outside of angular
-        $element.on('set', function(args) {
-          // tell angular that it needs to update the UI
+        // when data changes outside of angular, tell angular that it needs to update the UI
+        $element.on('set', function(args) { // "set" is a slider-generated event
           $scope.$apply(function() {
             // set the data within angular
             ngModelCtrl.$setViewValue($element.val());
