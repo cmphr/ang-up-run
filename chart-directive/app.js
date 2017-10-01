@@ -1,5 +1,5 @@
 angular.module('googleChartApp', [])
-  controller('MainCtrl', [function() {
+  .controller('MainCtrl', [function() {
     var vm = this;
 
     vm.pieChartData = [
